@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,12 +8,13 @@ namespace Mission6.Models
 {
     public class TaskInputContext : DbContext
     {
-        public TaskInputContext(DbContexOptions<TaskInputContext> options) : base(options)
+        //constructor
+        public TaskInputContext(DbContextOptions<TaskInputContext> options) : base(options)
         {
 
         }
         //STILL NEED TO FIX THIS!
-       
+
         public DbSet<TaskInput> responses { get; set; }
         public DbSet<Category> Category { get; set; }
 
@@ -31,16 +33,7 @@ namespace Mission6.Models
                 {
                     TaskID = 1,
                     Task = "Finish Homework",
-                    DueDate = (2022,07,20,09,15,0),
-                    Quadrant = 1,
-                    CategoryID = 2,
-                    Completed = true                    
-                },
-                new TaskInput
-                {
-                    TaskID = 1,
-                    Task = "Finish Homework",
-                    DueDate = (2022, 07, 20, 09, 15, 0),
+                    DueDate = new DateTime(2022, 07, 20, 09, 15, 0),
                     Quadrant = 1,
                     CategoryID = 2,
                     Completed = true
@@ -49,13 +42,22 @@ namespace Mission6.Models
                 {
                     TaskID = 1,
                     Task = "Finish Homework",
-                    DueDate = (2022, 07, 20, 09, 15, 0),
+                    DueDate = new DateTime(2022, 07, 20, 09, 15, 0),
+                    Quadrant = 1,
+                    CategoryID = 2,
+                    Completed = true
+                },
+                new TaskInput
+                {
+                    TaskID = 1,
+                    Task = "Finish Homework",
+                    DueDate = new DateTime(2022, 07, 20, 09, 15, 0),
                     Quadrant = 1,
                     CategoryID = 2,
                     Completed = true
                 }
                 );
-            }
-
         }
+
+    }
 }
