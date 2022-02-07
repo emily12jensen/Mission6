@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Mission6.Models;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Mission6
             services.AddControllersWithViews();
             services.AddDbContext<TaskInputContext>(OptionsBuilderConfigurationExtensions =>
            {
-               OptionsBuilderConfigurationExtensions.UseSqlite(Configuration["connectionStrings: BlahConnection"]);
+               Options.UseSqlite(Configuration["connectionStrings: BlahConnection"]);
            });
             //services.AddRazorPages();
         }

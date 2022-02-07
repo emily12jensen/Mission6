@@ -11,9 +11,8 @@ namespace Mission6.Models
         //constructor
         public TaskInputContext(DbContextOptions<TaskInputContext> options) : base(options)
         {
-
+            ///leave blank for now
         }
-        //STILL NEED TO FIX THIS!
 
         public DbSet<TaskInput> responses { get; set; }
         public DbSet<Category> Category { get; set; }
@@ -40,21 +39,21 @@ namespace Mission6.Models
                 },
                 new TaskInput
                 {
-                    TaskID = 1,
-                    Task = "Finish Homework",
-                    DueDate = new DateTime(2022, 07, 20, 09, 15, 0),
-                    Quadrant = 1,
-                    CategoryID = 2,
-                    Completed = true
+                    TaskID = 2,
+                    Task = "Eat Dinner",
+                    DueDate = new DateTime(2022, 08, 20, 05, 15, 0),
+                    Quadrant = 2,
+                    CategoryID = 1,
+                    Completed = false
                 },
                 new TaskInput
                 {
-                    TaskID = 1,
-                    Task = "Finish Homework",
-                    DueDate = new DateTime(2022, 07, 20, 09, 15, 0),
-                    Quadrant = 1,
-                    CategoryID = 2,
-                    Completed = true
+                    TaskID = 3,
+                    Task = "Watch a Movie",
+                    DueDate = new DateTime(2022, 06, 20, 09, 15, 0),
+                    Quadrant = 4,
+                    CategoryID = 1,
+                    Completed = false
                 }
                 );
         }
