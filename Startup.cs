@@ -29,7 +29,8 @@ namespace Mission6
             services.AddControllersWithViews();
             services.AddDbContext<TaskInputContext>(options =>
            {
-               options.UseSqlite(Configuration.GetConnectionString("JoelHiltonConnection"));
+               //emily note to fix ""
+               options.UseSqlite(Configuration["ConnectionStrings:DefaultConnection"]);
            });
             //services.AddRazorPages();
         }
