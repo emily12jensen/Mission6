@@ -27,9 +27,9 @@ namespace Mission6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<TaskInputContext>(OptionsBuilderConfigurationExtensions =>
+            services.AddDbContext<TaskInputContext>(options =>
            {
-               Options.UseSqlite(Configuration["connectionStrings: BlahConnection"]);
+               options.UseSqlite(Configuration.GetConnectionString("JoelHiltonConnection"));
            });
             //services.AddRazorPages();
         }
