@@ -29,7 +29,7 @@ namespace Mission6
             services.AddControllersWithViews();
             services.AddDbContext<TaskInputContext>(options =>
            {
-               //emily note to fix ""
+               
                options.UseSqlite(Configuration["ConnectionStrings:DefaultConnection"]);
            });
             //services.AddRazorPages();
