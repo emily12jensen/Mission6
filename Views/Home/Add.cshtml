@@ -1,9 +1,63 @@
-﻿@{
-    ViewData["Title"] = "Add";
+﻿
+@{
+    ViewData["Title"] = "Add Task";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Add</h1>
-</div>
+@model TaskInput;
 
+
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<p>Add a new task by filling out the form below</p>
+<br />
+@*form to add another movie to the database*@
+@*this page is also used for the edit page*@
+<div>
+    <form method="post">
+        <label asp-for="CategoryID">Category</label><br />
+        <select asp-for="CategoryID">
+            @*this stuff is used to loop through the movie categories*@
+
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select>
+        <br /><br />
+
+        <label asp-for="Task">Task</label><br />
+        <input type="text" asp-for="Task" />
+        <br /><br />
+
+        <label asp-for="DueDate">Due date:</label><br />
+        <input asp-for="DueDate" type="date" value="2022-02-08"><br /><br />
+
+        <label>Completed: </label><br />
+        <select asp-for="Completed">
+
+            <option value="false">False</option>
+            <option value="true">True</option>
+        </select>
+        <br /><br />
+
+        <label>Quadrant</label><br />
+        <select asp-for="Quadrant">
+            <option value="1">1: Urgent/Important</option>
+            <option value="2">2: Not Urgent/Not Important</option>
+            <option value="3">3: Urgent/Not Important</option>
+            <option value="4">4: Not Urgent/Not Important</option>
+        </select>
+        <br /><br />
+
+
+
+        <button class="btn btn-primary" type="submit">Add Task</button>
+
+    </form>
+
+    <div asp-validation-summary="All"></div>
+</div>
 

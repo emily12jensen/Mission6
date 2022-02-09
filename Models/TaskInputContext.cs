@@ -20,10 +20,10 @@ namespace Mission6.Models
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<Category>().HasData(
-                new Category { CategoryId = 1, CategoryName = "Home" },
-                new Category { CategoryId = 2, CategoryName = "School" },
-                new Category { CategoryId = 3, CategoryName = "Work" },
-                new Category { CategoryId = 4, CategoryName = "Church" }
+                new Category { CategoryID = 1, CategoryName = "Home" },
+                new Category { CategoryID = 2, CategoryName = "School" },
+                new Category { CategoryID = 3, CategoryName = "Work" },
+                new Category { CategoryID = 4, CategoryName = "Church" }
                 );
 
             mb.Entity<TaskInput>().HasData(
