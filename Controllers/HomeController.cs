@@ -30,10 +30,13 @@ namespace Mission6.Controllers
         {
             return View();
         }
+
+        [HttpGet]
         public IActionResult Quadrant()
         {
             var taskList = _taskContext.responses
                 .Include(x => x.Category)
+                .Where(x => x.Completed == false)
                 .ToList();
             return View(taskList);
         }
@@ -66,7 +69,7 @@ namespace Mission6.Controllers
         {
             ViewBag.Categories = _taskContext.Category.ToList();
             var task = _taskContext.responses.Single(x => x.TaskID == id);
-            return View(task);
+            return View("Edit", task);
         }
         [HttpPost]
         public IActionResult Edit(TaskInput editedTask)
@@ -80,9 +83,10 @@ namespace Mission6.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var movie = _taskContext.responses.Single(x => x.TaskID == id);
-            return View(movie);
+            var quadrant = _taskContext.responses.Single(x => x.TaskID == id);
+            return View(quadrant);
         }
+
         [HttpPost]
         public IActionResult Delete(TaskInput deleteTask)
         {
